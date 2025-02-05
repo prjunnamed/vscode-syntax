@@ -1,0 +1,45 @@
+{
+    "publisher": "whitequark",
+    "name": "prjunnamed-syntax",
+    "displayName": "Project Unnamed IR syntax",
+    "description": "Project Unnamed intermediate representation syntax highlighting for Visual Studio Code",
+    "author": "Catherine <whitequark@whitequark.org>",
+    "license": "BSD-0-Clause",
+    "homepage": "https://github.com/prjunnamed/",
+    "version": "0.1.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/prjunnamed/vscode-syntax.git"
+    },
+    "engines": {
+        "vscode": "^1.82.0"
+    },
+    "extensionKind": [
+        "ui"
+    ],
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "prjunnamed",
+                "aliases": [
+                    "Project Unnamed IR"
+                ],
+                "extensions": [
+                    ".uir"
+                ]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "prjunnamed",
+                "scopeName": "source.prjunnamed",
+                "path": "./syntaxes/prjunnamed.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {},
+    "devDependencies": {}
+}

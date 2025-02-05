@@ -1,0 +1,87 @@
+; Boneless ALSRU
+%0:2 = input "i_a"
+%2:2 = input "i_b"
+%4:1 = input "i_c"
+%5:5 = input "c_op"
+%10:1 = input "i_h"
+%11:1 = input "c_dir"
+%12:1 = input "clk"
+%13:1 = input "rst"
+%14:2 = match en=1 %11 {
+  [0]
+  [1]
+}
+%16:4 = match en=1 {%5+1 %5+0} {
+  [01]
+  [10]
+  [11]
+  [00]
+}
+%20:2 = and %0:2 %2:2
+%22:2 = or %0:2 %2:2
+%24:2 = xor %0:2 %2:2
+%26:4 = match en=1 {%5+3 %5+2} {
+  [00]
+  [01]
+  [10]
+  [11]
+}
+%30:2 = not %2:2
+%32:4 = adc {0 %58+1 %58+0} {0 %66+1 %66+0} 0
+%36:5 = adc {0 %32+2 %32+1 %32+0} {0 0 0 %4+0} 0
+%41:2 = match en=1 %5+4 {
+  [0]
+  [1]
+}
+%43:2 = match en=1 {%70+1 %66+1 %58+1} {
+  [100]
+  [011]
+}
+%45:1 = eq %70:2 00
+%46:2 = assign en=%14+0 00 {%77+0 %10+0} at=#0
+%48:2 = assign en=%14+1 %46:2 {%10+0 %77+1} at=#0
+%50:1 = assign en=%14+0 0 %77+1 at=#0
+%51:1 = assign en=%14+1 %50 %77+0 at=#0
+%52:2 = assign en=%16+0 00 %20:2 at=#0
+%54:2 = assign en=%16+1 %52:2 %22:2 at=#0
+%56:2 = assign en=%16+2 %54:2 %24:2 at=#0
+%58:2 = assign en=%16+3 %56:2 %0:2 at=#0
+%60:2 = assign en=%26+0 00 00 at=#0
+%62:2 = assign en=%26+1 %60:2 %48:2 at=#0
+%64:2 = assign en=%26+2 %62:2 %2:2 at=#0
+%66:2 = assign en=%26+3 %64:2 %30:2 at=#0
+%68:2 = assign en=%41+0 00 {%36+1 %36+0} at=#0
+%70:2 = assign en=%41+1 %68:2 %66:2 at=#0
+%72:1 = assign en=%43+0 0 1 at=#0
+%73:1 = assign en=%43+1 %72 1 at=#0
+%74:1 = match en=1 %13 {
+  [1]
+}
+%75:2 = assign en=%74 %70:2 00 at=#0
+%77:2 = dff %75:2 clk=%12 init=00
+%79:0 = output "o_o" %70:2
+%80:0 = output "o_z" %45
+%81:0 = output "o_s" %70+1
+%82:0 = output "o_c" %36+2
+%83:0 = output "o_v" %73
+%84:0 = output "o_h" %51
+%85:0 = name "alsru i_a" %0:2
+%86:0 = name "alsru i_b" %2:2
+%87:0 = name "alsru i_c" %4
+%88:0 = name "alsru o_o" %70:2
+%89:0 = name "alsru o_z" %45
+%90:0 = name "alsru o_s" %70+1
+%91:0 = name "alsru o_c" %36+2
+%92:0 = name "alsru o_v" %73
+%93:0 = name "alsru c_op" %5:5
+%94:0 = name "alsru i_h" %10
+%95:0 = name "alsru o_h" %51
+%96:0 = name "alsru c_dir" %11
+%97:0 = name "alsru clk" %12
+%98:0 = name "alsru rst" %13
+%99:0 = name "alsru dec_op" %5:5
+%100:0 = name "alsru s_s" %48:2
+%101:0 = name "alsru r_o" %77:2
+%102:0 = name "alsru s_x" %58:2
+%103:0 = name "alsru s_y" %66:2
+%104:0 = name "alsru s_p" {%36+1 %36+0}
