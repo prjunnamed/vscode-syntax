@@ -1,15 +1,21 @@
 {
   "scopeName": "source.prjunnamed",
-  "patterns": [
-    {"include": "#comment"},
-    {"include": "#decimal"},
-    {"include": "#ternary"},
-    {"include": "#string"},
-    {"include": "#io-port"},
-    {"include": "#cell-ref"},
-    {"include": "#cell-name"}
-  ],
+  "patterns": [{"include": "#declaration"}],
   "repository": {
+    "declaration": {
+      "patterns": [
+        {"include": "#comment"},
+        {"include": "#decimal"},
+        {"include": "#ternary"},
+        {"include": "#string"},
+        {"include": "#io-port"},
+        {"include": "#cell-ref"},
+        {"include": "#cell-ref-added"},
+        {"include": "#cell-name"},
+        {"include": "#diff-added"},
+        {"include": "#diff-removed"}
+      ]
+    },
     "comment": {
       "match": ";.+",
       "name": "comment.line.prjunnamed"
@@ -30,21 +36,39 @@
       "begin": "\"",
       "end": "\"",
       "name": "string.quoted.double.prjunnamed",
-      "patterns": [{ "include": "#string-escape" }]
+      "patterns": [{"include": "#string-escape"}]
     },
     "io-port": {
       "begin": "&\"",
       "end": "(\"):\\d+",
       "name": "entity.name.io-port.prjunnamed",
-      "patterns": [{ "include": "#string-escape" }]
+      "patterns": [{"include": "#string-escape"}]
     },
     "cell-ref": {
       "match": "%\\d+(:\\d+)?(\\+\\d+)?",
-      "name": "variable.parameter.prjunnamed"
+      "name": "variable.other.prjunnamed"
+    },
+    "cell-ref-added": {
+      "match": "%_\\d+(:\\d+)?(\\+\\d+)?",
+      "name": "markup.inserted.prjunnamed"
     },
     "cell-name": {
       "match": "buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|memory|iob|target|input|output|name",
       "name": "keyword.other.cell.prjunnamed"
+    },
+    "diff-added": {
+      "begin": "^\\+%_?\\d+(:\\d+)?(\\+\\d+)?",
+      "end": "\n",
+      "beginCaptures": {"0": {"name": "markup.inserted.prjunnamed"}},
+      "name": "meta.added.prjunnamed",
+      "patterns": [{"include": "#declaration"}]
+    },
+    "diff-removed": {
+      "begin": "^-%\\d+(:\\d+)?(\\+\\d+)?",
+      "end": "\n",
+      "beginCaptures": {"0": {"name": "markup.deleted.prjunnamed"}},
+      "name": "meta.removed.prjunnamed",
+      "patterns": [{"include": "#declaration"}]
     }
   }
 }
