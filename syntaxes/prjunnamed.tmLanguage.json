@@ -12,6 +12,7 @@
         {"include": "#cell-ref"},
         {"include": "#cell-ref-added"},
         {"include": "#cell-name"},
+        {"include": "#memory-cell"},
         {"include": "#diff-added"},
         {"include": "#diff-removed"}
       ]
@@ -53,8 +54,30 @@
       "name": "markup.inserted.prjunnamed"
     },
     "cell-name": {
-      "match": "buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|memory|iobuf|target|input|output|name",
+      "match": "buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|input|output|name",
       "name": "keyword.other.cell.prjunnamed"
+    },
+    "memory-cell": {
+      "begin": "memory",
+      "end": "^\\s*}",
+      "beginCaptures": {"0": {"name": "keyword.other.cell.prjunnamed"}},
+      "patterns": [
+        {"include": "#comment"},
+        {"include": "#decimal"},
+        {"include": "#ternary"},
+        {"include": "#cell-ref"},
+        {"include": "#cell-ref-added"},
+        {"include": "#memory-clause"},
+        {"include": "#memory-port-relation"}
+      ]
+    },
+    "memory-clause": {
+      "match": "init|write|read",
+      "name": "keyword.other.memory-clause.prjunnamed"
+    },
+    "memory-port-relation": {
+      "match": "undef|rdfirst|trans",
+      "name": "keyword.other.memory-port-relation.prjunnamed"
     },
     "diff-added": {
       "begin": "^\\+%_?\\d+(:\\d+)?(\\+\\d+)?",
