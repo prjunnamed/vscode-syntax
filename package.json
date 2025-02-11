@@ -1,5 +1,5 @@
 {
-    "publisher": "whitequark",
+    "publisher": "prjunnamed",
     "name": "prjunnamed-syntax",
     "displayName": "Project Unnamed IR syntax",
     "description": "Project Unnamed intermediate representation syntax highlighting for Visual Studio Code",
@@ -25,7 +25,7 @@
             {
                 "id": "prjunnamed",
                 "aliases": [
-                    "Project Unnamed IR"
+                    "Unnamed IR"
                 ],
                 "extensions": [
                     ".uir"
