@@ -41,5 +41,7 @@
         ]
     },
     "scripts": {},
-    "devDependencies": {}
+    "devDependencies": {
+        "@vscode/vsce": "^3.2.2"
+    }
 }
