@@ -54,7 +54,7 @@
       "name": "markup.inserted.prjunnamed"
     },
     "cell-name": {
-      "match": "buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|input|output|name",
+      "match": "buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|input|output|name|debug",
       "name": "keyword.other.cell.prjunnamed"
     },
     "memory-cell": {
