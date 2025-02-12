@@ -41,7 +41,7 @@
     },
     "io-port": {
       "begin": "&\"",
-      "end": "(\"):\\d+",
+      "end": "(\")(:\\d+)?(\\+\\d+)?",
       "name": "entity.name.io-port.prjunnamed",
       "patterns": [{"include": "#string-escape"}]
     },
