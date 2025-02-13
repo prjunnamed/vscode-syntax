@@ -6,7 +6,7 @@ This repository provides Project Unnamed intermediate representation syntax high
 Installation
 ------------
 
-Run `vsce pack` and install the resulting `*.vsix` file manually.
+Install the [Project Unnamed IR syntax extension](https://marketplace.visualstudio.com/items?itemName=prjunnamed.prjunnamed-syntax) from the VS Code Marketplace.
 
 License
 -------
