@@ -8,10 +8,10 @@
         {"include": "#decimal"},
         {"include": "#ternary"},
         {"include": "#string"},
+        {"include": "#keyword"},
         {"include": "#io-port"},
         {"include": "#cell-ref"},
         {"include": "#cell-ref-added"},
-        {"include": "#cell-name"},
         {"include": "#memory-cell"},
         {"include": "#diff-added"},
         {"include": "#diff-removed"}
@@ -39,6 +39,10 @@
       "name": "string.quoted.double.prjunnamed",
       "patterns": [{"include": "#string-escape"}]
     },
+    "keyword": {
+      "match": "set|buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|param|input|output|io|name|debug",
+      "name": "keyword.other.prjunnamed"
+    },
     "io-port": {
       "begin": "&\"",
       "end": "(\")(:\\d+)?(\\+\\d+)?",
@@ -53,10 +57,6 @@
       "match": "%_\\d+(:\\d+)?(\\+\\d+)?",
       "name": "markup.inserted.prjunnamed"
     },
-    "cell-name": {
-      "match": "buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|param|input|output|io|name|debug",
-      "name": "keyword.other.cell.prjunnamed"
-    },
     "memory-cell": {
       "begin": "memory",
       "end": "^\\s*}",
@@ -67,17 +67,12 @@
         {"include": "#ternary"},
         {"include": "#cell-ref"},
         {"include": "#cell-ref-added"},
-        {"include": "#memory-clause"},
-        {"include": "#memory-port-relation"}
+        {"include": "#memory-keyword"}
       ]
     },
-    "memory-clause": {
-      "match": "init|write|read",
-      "name": "keyword.other.memory-clause.prjunnamed"
-    },
-    "memory-port-relation": {
-      "match": "undef|rdfirst|trans",
-      "name": "keyword.other.memory-port-relation.prjunnamed"
+    "memory-keyword": {
+      "match": "init|write|read|undef|rdfirst|trans",
+      "name": "keyword.other.prjunnamed"
     },
     "diff-added": {
       "begin": "^\\+%_?\\d+(:\\d+)?(\\+\\d+)?",
