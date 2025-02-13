@@ -1,0 +1,25 @@
+set target "siliconblue"
+&"i_mem_data":16
+%0:_ = target "SB_IO" {
+  param "PIN_TYPE" = 000001
+  param "PULLUP" = 0
+  param "NEG_TRIGGER" = 0
+  param "IS_GB" = 0
+  param "IO_STANDARD" = "SB_LVCMOS"
+  input "D_OUT_0" = %3
+  input "D_OUT_1" = X
+  input "OUTPUT_ENABLE" = 0
+  input "CLOCK_ENABLE" = 1
+  input "INPUT_CLK" = X
+  input "OUTPUT_CLK" = X
+  input "LATCH_INPUT_VALUE" = X
+  %0:1 = output "D_IN_0"
+  %1:1 = output "D_IN_1"
+  %2:1 = output "GLOBAL_BUFFER_OUTPUT"
+  io "PACKAGE_PIN" = &"i_mem_data"+0
+  io "PACKAGE_PIN_B" = &_
+}
+%3:1 = target "SB_LUT4" {
+  param "LUT_INIT" = 0101010101010101
+  input "I" = [ X X X %0 ]
+}
