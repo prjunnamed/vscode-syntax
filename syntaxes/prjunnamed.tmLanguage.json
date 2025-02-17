@@ -9,9 +9,10 @@
         {"include": "#ternary"},
         {"include": "#string"},
         {"include": "#keyword"},
-        {"include": "#io-port"},
+        {"include": "#metadata-ref"},
+        {"include": "#io-ref"},
         {"include": "#cell-ref"},
-        {"include": "#cell-ref-added"},
+        {"include": "#cell-ref-new"},
         {"include": "#memory-cell"},
         {"include": "#diff-added"},
         {"include": "#diff-removed"}
@@ -40,20 +41,24 @@
       "patterns": [{"include": "#string-escape"}]
     },
     "keyword": {
-      "match": "set|buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|param|input|output|io|name|debug",
+      "match": "source|scope|ident|set|buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|param|input|output|io|name|debug",
       "name": "keyword.other.prjunnamed"
     },
-    "io-port": {
+    "metadata-ref": {
+      "match": "!\\d+",
+      "name": "variable.other.prjunnamed"
+    },
+    "io-ref": {
       "begin": "&\"",
       "end": "(\")(:\\d+)?(\\+\\d+)?",
-      "name": "entity.name.io-port.prjunnamed",
+      "name": "entity.name.io-ref.prjunnamed",
       "patterns": [{"include": "#string-escape"}]
     },
     "cell-ref": {
       "match": "%\\d+(:\\d+)?(\\+\\d+)?",
       "name": "variable.other.prjunnamed"
     },
-    "cell-ref-added": {
+    "cell-ref-new": {
       "match": "%_\\d+(:\\d+)?(\\+\\d+)?",
       "name": "markup.inserted.prjunnamed"
     },
@@ -66,7 +71,7 @@
         {"include": "#decimal"},
         {"include": "#ternary"},
         {"include": "#cell-ref"},
-        {"include": "#cell-ref-added"},
+        {"include": "#cell-ref-new"},
         {"include": "#memory-keyword"}
       ]
     },
