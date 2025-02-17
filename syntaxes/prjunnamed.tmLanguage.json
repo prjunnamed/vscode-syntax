@@ -41,7 +41,7 @@
       "patterns": [{"include": "#string-escape"}]
     },
     "keyword": {
-      "match": "source|scope|ident|set|buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|param|input|output|io|name|debug",
+      "match": "source|scope|ident|attr|set|buf|not|and|or|xor|mux|adc|eq|ult|slt|shl|ushr|sshr|xshr|mul|udiv|umod|sdiv_trunc|sdiv_floor|smod_trunc|smod_floor|match|assign|dff|iobuf|target|param|input|output|io|name|debug",
       "name": "keyword.other.prjunnamed"
     },
     "metadata-ref": {
