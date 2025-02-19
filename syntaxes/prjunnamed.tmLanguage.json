@@ -27,8 +27,10 @@
       "name": "constant.numeric.decimal.prjunnamed"
     },
     "ternary": {
-      "match": "[01X]+",
-      "name": "constant.numeric.binary.prjunnamed"
+      "match": "([01X]+)(\\*([0-9]+))?",
+      "captures": {
+        "1": {"name": "constant.numeric.binary.prjunnamed"}
+      }
     },
     "string-escape": {
       "match": "\\[0-9a-f]{2}",
@@ -55,12 +57,16 @@
       "patterns": [{"include": "#string-escape"}]
     },
     "cell-ref": {
-      "match": "%\\d+(:\\d+)?(\\+\\d+)?",
-      "name": "variable.other.prjunnamed"
+      "match": "(%\\d+(:\\d+)?(\\+\\d+)?)(\\*([0-9]+))?",
+      "captures": {
+        "1": {"name": "variable.other.prjunnamed"}
+      }
     },
     "cell-ref-new": {
-      "match": "%_\\d+(:\\d+)?(\\+\\d+)?",
-      "name": "markup.inserted.prjunnamed"
+      "match": "(%_\\d+(:\\d+)?(\\+\\d+)?)(\\*([0-9]+))?",
+      "captures": {
+        "1": {"name": "markup.inserted.prjunnamed"}
+      }
     },
     "memory-cell": {
       "begin": "memory",

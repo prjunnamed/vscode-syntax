@@ -6,7 +6,7 @@
     "author": "Catherine <whitequark@whitequark.org>",
     "license": "BSD-0-Clause",
     "homepage": "https://github.com/prjunnamed/",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/prjunnamed/vscode-syntax.git"
