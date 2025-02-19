@@ -3,7 +3,8 @@
 %2:32 = input "wdata"
 %3:5 = input "raddr"
 %4:1 = input "ren"
-%5:_ = memory depth=#32 width=#32 {
+!123 = source "foo.py" (#0 #0) (#0 #0)
+%5:_ = memory depth=#32 width=#32 !123 {
   init 00000000000000000000000000000000*30
   write addr=%1:5 data=%2:32 mask=11111111111111111111111111111111 clk=%0
   %5:32 = read addr=%3:5 clk=%0 en=%4 [rdfirst]

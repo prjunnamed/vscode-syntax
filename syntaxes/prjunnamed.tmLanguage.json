@@ -76,6 +76,7 @@
         {"include": "#comment"},
         {"include": "#decimal"},
         {"include": "#ternary"},
+        {"include": "#metadata-ref"},
         {"include": "#cell-ref"},
         {"include": "#cell-ref-new"},
         {"include": "#memory-keyword"}
